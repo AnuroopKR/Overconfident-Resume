@@ -21,7 +21,8 @@ const Index = () => {
 const styles = StyleSheet.create({
   container:{
     backgroundColor:"#e1f2fdff",
-    paddingTop:30
+    paddingTop:30,
+    height:"100%"
   }
 })
 

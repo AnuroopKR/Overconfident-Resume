@@ -22,9 +22,9 @@ const styles = StyleSheet.create({
   container: {
     
     display: "flex",
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor:"#e1f2fdff",
+    marginBottom:10
   },
   image: {
     height: 400,
@@ -33,9 +33,8 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 20,
     color: "#555",
-    marginBottom: 20,
     textAlign: "center",
-    fontWeight:"bold"
+    fontWeight:"bold",
   },
   imageContainer:{
     height:270

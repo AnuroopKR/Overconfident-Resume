@@ -13,8 +13,6 @@ const Name = () => {
 
 const styles = StyleSheet.create({
   container: {
-    // flex:1,
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#e1f2fdff",
   },
@@ -22,8 +20,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    marginBottom: 8,
-    borderBottomColor: "gray",
+    // marginBottom: 8,
+    // borderBottomColor: "gray",
   },
 });
 
