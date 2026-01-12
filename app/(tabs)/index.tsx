@@ -1,15 +1,17 @@
 import Hero from '@/components/hero';
 import Name from '@/components/Name';
 import ResumeForm from '@/components/resume-form';
+import { Link } from 'expo-router';
 import React from 'react';
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Index = () => {
   return (
     <SafeAreaView >
           <View style={styles.container}>
-            <Name/>
+            <Name/>   
+               <Link href={"/resume"}><Text>resume</Text></Link>
       <Hero/>
       <ResumeForm/>
     </View>
