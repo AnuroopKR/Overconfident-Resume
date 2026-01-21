@@ -1,4 +1,5 @@
-import React from "react";
+import { ResumeContext } from "@/context";
+import React, { useContext } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 export type Experience = {
   company: string;
@@ -44,6 +45,12 @@ export const experiences: Experience[] = [
 ];
 
 const ResumeContent = () => {
+  const context = useContext(ResumeContext);
+  if (!context) {
+    throw new Error("ResumeContext must be used inside ResumeProvider");
+  }
+  const { resume, setResume } = context;
+  console.log(111, resume);
   return (
     <View>
       <View>
@@ -63,13 +70,9 @@ const ResumeContent = () => {
               <View style={styles.sectionLine} />
             </View>
 
-            <Text style={styles.text}>
-              Here are better, funnier, more catchy name options for your
-              Overconfident Resume Game. I’ve grouped them by vibe so you can
-              choose easily.
-            </Text>
+            <Text style={styles.text}>{resume.summary}</Text>
             <View style={styles.sectionHeader}>
-              <Text style={styles.subtitle}>Experiance</Text>
+              <Text style={styles.subtitle}>Experience</Text>
               <View style={styles.sectionLine} />
             </View>
             <FlatList
@@ -93,15 +96,14 @@ const ResumeContent = () => {
             />
           </View>
           <View style={styles.rightSide}>
-
-              <View style={styles.sectionHeader}>
-                <Text style={styles.sectionTitle}>Skills</Text>
-                <View style={styles.sectionLine} />
-              </View>
-              <Text style={styles.skill}>React ⭐⭐⭐⭐</Text>
-              <Text style={styles.skill}>Node.js ⭐⭐⭐⭐</Text>
-              <Text style={styles.skill}>Debugging ⭐⭐⭐⭐⭐</Text>
-              <Text style={styles.skill}>Confidence ⭐⭐⭐⭐⭐</Text>
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionTitle}>Skills</Text>
+              <View style={styles.sectionLine} />
+            </View>
+            <Text style={styles.skill}>React ⭐⭐⭐⭐</Text>
+            <Text style={styles.skill}>Node.js ⭐⭐⭐⭐</Text>
+            <Text style={styles.skill}>Debugging ⭐⭐⭐⭐⭐</Text>
+            <Text style={styles.skill}>Confidence ⭐⭐⭐⭐⭐</Text>
           </View>
         </View>
       </View>
@@ -205,9 +207,7 @@ const styles = StyleSheet.create({
   skill: {
     marginVertical: 1,
     fontWeight: "800",
-        fontSize:10,
-        
-
+    fontSize: 10,
   },
   sectionTitle: {
     backgroundColor: "#1F3A5F",
